@@ -1,0 +1,10 @@
+C:\Users\Rizwan\source\repos\TestConsoleApp\TestConsoleApp\bin\Debug\netcoreapp2.1\TestConsoleApp.deps.json
+C:\Users\Rizwan\source\repos\TestConsoleApp\TestConsoleApp\bin\Debug\netcoreapp2.1\TestConsoleApp.runtimeconfig.json
+C:\Users\Rizwan\source\repos\TestConsoleApp\TestConsoleApp\bin\Debug\netcoreapp2.1\TestConsoleApp.runtimeconfig.dev.json
+C:\Users\Rizwan\source\repos\TestConsoleApp\TestConsoleApp\bin\Debug\netcoreapp2.1\TestConsoleApp.dll
+C:\Users\Rizwan\source\repos\TestConsoleApp\TestConsoleApp\bin\Debug\netcoreapp2.1\TestConsoleApp.pdb
+C:\Users\Rizwan\source\repos\TestConsoleApp\TestConsoleApp\obj\Debug\netcoreapp2.1\TestConsoleApp.csprojAssemblyReference.cache
+C:\Users\Rizwan\source\repos\TestConsoleApp\TestConsoleApp\obj\Debug\netcoreapp2.1\TestConsoleApp.AssemblyInfoInputs.cache
+C:\Users\Rizwan\source\repos\TestConsoleApp\TestConsoleApp\obj\Debug\netcoreapp2.1\TestConsoleApp.AssemblyInfo.cs
+C:\Users\Rizwan\source\repos\TestConsoleApp\TestConsoleApp\obj\Debug\netcoreapp2.1\TestConsoleApp.dll
+C:\Users\Rizwan\source\repos\TestConsoleApp\TestConsoleApp\obj\Debug\netcoreapp2.1\TestConsoleApp.pdb

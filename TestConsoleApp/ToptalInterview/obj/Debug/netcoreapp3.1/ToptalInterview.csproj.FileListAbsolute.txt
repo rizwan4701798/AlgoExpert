@@ -1,0 +1,11 @@
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\bin\Debug\netcoreapp3.1\ToptalInterview.exe
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\bin\Debug\netcoreapp3.1\ToptalInterview.deps.json
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\bin\Debug\netcoreapp3.1\ToptalInterview.runtimeconfig.json
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\bin\Debug\netcoreapp3.1\ToptalInterview.runtimeconfig.dev.json
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\bin\Debug\netcoreapp3.1\ToptalInterview.dll
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\bin\Debug\netcoreapp3.1\ToptalInterview.pdb
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\obj\Debug\netcoreapp3.1\ToptalInterview.csprojAssemblyReference.cache
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\obj\Debug\netcoreapp3.1\ToptalInterview.AssemblyInfoInputs.cache
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\obj\Debug\netcoreapp3.1\ToptalInterview.AssemblyInfo.cs
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\obj\Debug\netcoreapp3.1\ToptalInterview.dll
+C:\Users\Rizwan\source\repos\TestConsoleApp\ToptalInterview\obj\Debug\netcoreapp3.1\ToptalInterview.pdb

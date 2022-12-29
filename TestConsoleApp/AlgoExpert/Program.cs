@@ -1120,12 +1120,36 @@ namespace AlgoExpert
 			return reverseWords;
 		}
 
+		public static List<List<string>> groupAnagrams(List<string> words){
+			var memo = new Dictionary<string,List<string>>();
+			foreach (var elm in words){
+				var sortedString = string.Concat(elm.OrderBy(c => c));
+				if(memo.ContainsKey(sortedString)){
+					memo[sortedString].Add(elm);
+				} else {
+					memo[sortedString] = new List<string>{elm};
+				}
+			}
+			return memo.Values.ToList();
+		}
+
 
 
 		static void Main(string[] args)
         {			
 			
-			string result =  ReverseWordsInString("this is rizwan");
+			List<string> mylist = new List<string>{"yo", "act", "flop", "tac", "foo", "cat", "oy", "olfp"};
+		    List<List<string>> result =  groupAnagrams(mylist);
+			
+			/* Stack<string> mystack = new Stack<string>();
+			mystack.Push("abs");
+			mystack.Pop();
+
+			Queue<string> queue = new Queue<string>();
+			queue.Enqueue("test");
+			queue.Dequeue(); */
+			
+			//string result =  ReverseWordsInString("this is rizwan");
 			
 			int[] nums = new int[]{-5,-5,3,3,-2};
 			//bool result = ZeroSumSubArray(nums);

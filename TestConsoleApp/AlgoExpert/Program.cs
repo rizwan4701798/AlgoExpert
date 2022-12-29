@@ -1066,12 +1066,10 @@ namespace AlgoExpert
 		{
 			int multiple = 0;
 			int product = M;
-
 			while (product < N)
 			{
 				multiple++;
 				product = M * multiple;
-				
 			}
 
 			if (Math.Abs(product - N) < Math.Abs((M * (multiple - 1)) - N)) return product;
@@ -1079,7 +1077,7 @@ namespace AlgoExpert
 		}
 
 		static void Main(string[] args)
-        {
+        {			
 			int result = findClosestNumber(13, 4);
 			Console.WriteLine(result);
 			Console.ReadLine();

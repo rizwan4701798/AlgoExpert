@@ -1103,12 +1103,32 @@ namespace AlgoExpert
 			return false;
 		}
 
-		
+		public static string ReverseWordsInString(string str){
+			string reverseWords = "";
+			string word = "";
+			for (int i = 0; i < str.Length; i++)
+			{
+				if(str[i] == ' '){
+					word = str[i] + word;
+					reverseWords = word + reverseWords;
+					word = "";
+				} else {
+					word = word + str[i];
+				}
+			}
+			reverseWords = word + reverseWords;
+			return reverseWords;
+		}
+
+
 
 		static void Main(string[] args)
         {			
+			
+			string result =  ReverseWordsInString("this is rizwan");
+			
 			int[] nums = new int[]{-5,-5,3,3,-2};
-			bool result = ZeroSumSubArray(nums);
+			//bool result = ZeroSumSubArray(nums);
 			
 			// int result = findClosestNumber(13, 4);
 			Console.WriteLine(result);

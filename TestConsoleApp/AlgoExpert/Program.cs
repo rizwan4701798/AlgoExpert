@@ -1076,9 +1076,41 @@ namespace AlgoExpert
 			else return M * (multiple - 1);
 		}
 
+		public static bool ZeroSumSubArray(int[] nums){
+			if(nums.Length ==0){
+				return false;
+			}
+			if(nums.Length == 1){
+				return nums[0] == 0;
+			}
+			int sum = 0;
+			var zeroSumDictionary = new Dictionary<int, List<int>>();
+			for (int i = 0; i < nums.Length; i++)
+			{
+				sum += nums[i];
+				if(sum == 0){
+					return true;
+				}
+				nums[i] = sum;
+				if(!zeroSumDictionary.ContainsKey(sum)){
+					zeroSumDictionary.Add(sum, new List<int>{i});
+				} else {
+					zeroSumDictionary[sum].Add(i);
+					return true;
+				}
+
+			}
+			return false;
+		}
+
+		
+
 		static void Main(string[] args)
         {			
-			int result = findClosestNumber(13, 4);
+			int[] nums = new int[]{-5,-5,3,3,-2};
+			bool result = ZeroSumSubArray(nums);
+			
+			// int result = findClosestNumber(13, 4);
 			Console.WriteLine(result);
 			Console.ReadLine();
         }

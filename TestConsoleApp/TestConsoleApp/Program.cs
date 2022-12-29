@@ -50,7 +50,7 @@ namespace TestConsoleApp
 
         public bool IsSubtree(TreeNode s, TreeNode t)
         {
-            if (s == null || t == null) return s == t;
+            if (s == null || t == null) return s == t; // this is test comment
             return AreEqual(s, t) || IsSubtree(s.left, t) || IsSubtree(s.right, t);
         }
 
@@ -3204,30 +3204,11 @@ public class Node {
                 return find;
             }
 
-            public int[][] MergeOverlappingIntervals(int[][] intervals)
-            {
-                for (int i = 0; i < intervals.Length; i++)
-                {
-
-                }
-
-
-
-            }
+         
 
             static void Main(string[] args)
             {
-                for (int i = 0; i < grid.Length; i++)
-
-                int[][] jagged_arr33 =
-    {
-    new int[] {1,2},
-    new int[] {3,5},
-    new int[] {4,7},
-    new int[] {6,8},
-    new int[] {9,10},
-
-};
+                
 
 
 

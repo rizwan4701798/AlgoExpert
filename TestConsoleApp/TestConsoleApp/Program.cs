@@ -3061,12 +3061,12 @@ public class Node {
                 for (int i = 0; i < board.Length; i++)
                 {
                     for (int j = 0; j < board[0].Length; j++)
+
                     {
                         if (WordSearch(board, word, i, j, 0))
                             return true;
                     }
                 }
-
                 return false;
             }
 
@@ -3154,6 +3154,7 @@ public class Node {
                     return 0;
 
                 Dictionary<char, int> dic = new Dictionary<char, int>();
+
 
 
                 int left = 0, right = 0, cnt = 0, maxCnt = 0, maxlen = 0;

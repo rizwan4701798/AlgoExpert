@@ -187,7 +187,7 @@ namespace AlgoExpert
 			// Write your code here.
 			string winner = "";
 			int wincounter = 0;
-			int maxPoints = 0;
+		
 
 			var dict = new Dictionary<string, int>();
 
@@ -1132,11 +1132,58 @@ namespace AlgoExpert
 			}
 			return memo.Values.ToList();
 		}
+        public static int[][] RemoveIslands(int[][] matrix){
+			var notIslands = new bool[matrix.Length, matrix[0].Length];
+			for (int row = 0; row < matrix.Length ; row++){
+				for (int col = 0; col < matrix[row].Length; col++){
+					bool rowIsBorder = row == 0 || row == matrix.Length - 1;
+					bool colIsBorder = col == 0 || col  == matrix[row].Length - 1;
+					bool isBorder = rowIsBorder || colIsBorder;
+					if(!isBorder) continue;
+					if(matrix[row][col] != 1) continue;
+					DFS(matrix, row, col, notIslands);
+				}
+			}
 
+			for (int row = 1; row < matrix.Length - 1; row++) {
+				for (int col = 0; col < matrix[row].Length - 1; col++){
+					if(matrix[row][col] == 1 && notIslands[row, col] == false){
+						matrix[row][col] = 0;
+					}
+				}
+				
+			}
+			return matrix;
+		}
 
+		public static void DFS(int[][] matrix, int row, int col, bool[,] notIslands){
+			if(matrix[row][col] == 0 || notIslands[row, col] == true){
+				return;
+			}
+			notIslands[row, col] = true;
+			if(row > 0) DFS(matrix, row - 1, col, notIslands);
+			if(row < matrix.Length - 1) DFS(matrix, row + 1, col, notIslands);
+			if(col > 0) DFS(matrix, row, col - 1, notIslands);
+			if(col < matrix[0].Length - 1) DFS(matrix, row, col + 1, notIslands);
+		}
 
 		static void Main(string[] args)
         {			
+			
+			int[][] matrix =
+			{
+			    new int[] { 1, 0, 0, 0, 0, 0 },
+			    new int[] { 0, 1, 0, 1, 1, 1 },
+			    new int[] { 0, 0, 1, 0, 1, 0 },
+			    new int[] { 1, 1, 0, 0, 1, 0 },
+			    new int[] { 1, 0, 1, 1, 0, 0 },
+			    new int[] { 1, 0, 0, 0, 0, 1 },
+			    
+			};
+
+			var result1= RemoveIslands(matrix);
+
+
 			
 			List<string> mylist = new List<string>{"yo", "act", "flop", "tac", "foo", "cat", "oy", "olfp"};
 		    List<List<string>> result =  groupAnagrams(mylist);
@@ -1155,7 +1202,7 @@ namespace AlgoExpert
 			//bool result = ZeroSumSubArray(nums);
 			
 			// int result = findClosestNumber(13, 4);
-			Console.WriteLine(result);
+			Console.WriteLine("Hello World");
 			Console.ReadLine();
         }
     }

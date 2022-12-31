@@ -1167,8 +1167,51 @@ namespace AlgoExpert
 			if(col < matrix[0].Length - 1) DFS(matrix, row, col + 1, notIslands);
 		}
 
+		public static bool BalanceBracket(string str){
+			var leftBrackets = new List<Char>(){'{','[','('};
+			var rightBrackets = new List<Char>(){'}',']',')'};
+			var stackBrackets = new Stack<char>();
+
+			foreach (var currentBracket in str){
+				if(leftBrackets.Contains(currentBracket)){
+					stackBrackets.Push(currentBracket);
+				}
+				else if(rightBrackets.Contains(currentBracket)){
+					if(stackBrackets.Count == 0) return false;
+					var lastBracketInTheStack = stackBrackets.Pop();
+					var indexOfCurrentBracketInTheRightBrackets = rightBrackets.IndexOf(currentBracket);
+					var indexOfLastBracketInTheLeftBrackets = leftBrackets.IndexOf(lastBracketInTheStack);
+					if(indexOfCurrentBracketInTheRightBrackets != indexOfLastBracketInTheLeftBrackets) return false;
+				}
+			}
+
+			return stackBrackets.Count == 0 ? true : false;
+		}
+
+		public static int[] NextGreaterElement(int[] array){
+			var nextindexArray = new int[array.Length];
+			for (int i = 0; i < array.Length; i++){
+				var counter = (i + 1)%array.Length;
+				var maxValue = Int32.MinValue;
+				while(counter != i){
+					if(array[i] < array[counter]){
+						maxValue = array[counter];
+						break;
+					}
+					counter = (counter + 1) % array.Length;
+				}
+				nextindexArray[i] = (maxValue != Int32.MinValue) ? maxValue : -1;
+			}
+			return nextindexArray;
+		}
+
 		static void Main(string[] args)
         {			
+			
+			int[] array = new int[]{2, 5, -3, -4, 6, 7, 2};
+			var result13 = NextGreaterElement(array);
+			
+			var result12 = BalanceBracket("[}");
 			
 			int[][] matrix =
 			{

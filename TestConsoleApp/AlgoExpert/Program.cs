@@ -1205,9 +1205,64 @@ namespace AlgoExpert
 			return nextindexArray;
 		}
 
+		public static int[] SearchInSortedMatrix(int[,] matrix, int target){
+			for (int i = 0; i < matrix.GetLength(0); i++){
+				var start = 0;
+				var end = matrix.GetLength(1) - 1;
+				while(start <= end){
+					var mid = (start + end) / 2;
+					if(target == matrix[i, mid])
+						return new int[2]{i,mid};
+					else if (target > matrix[i,mid])
+						start = mid + 1;
+					else 
+						end  = mid-1;
+				}
+			}
+			return new int[2]{-1,-1};
+		}
+
+		public static string[] MinimumCharactersForWords(string[] words){
+			var letters = new Dictionary<char, int>();
+			var charsList = new List<string>();
+
+			foreach(var word in words){
+				var frequencies = new Dictionary<char, int>();
+
+				foreach (var letter in word){
+					frequencies[letter] = frequencies.GetValueOrDefault(letter,0) + 1;
+
+				if(letters.ContainsKey(letter)) {
+					if(letters[letter] < frequencies[letter]){
+						letters[letter]++;
+						charsList.Add(Char.ToString(letter));
+					}
+				} else {
+					letters.Add(letter, 1);
+					charsList.Add(char.ToString(letter));
+				}
+					
+				}
+			}
+
+			return charsList.ToArray();
+		}
+
 		static void Main(string[] args)
         {			
 			
+			var words = new string[]{"this", "that", "did", "deed", "them!", "a"};
+			var result46 = MinimumCharactersForWords(words);
+			
+			int[,] matrix12 = new int[,]
+			{
+			    {1, 4, 7, 12, 15, 1000} ,
+   				{2, 5, 19, 31, 32, 1001} ,
+   				{3, 8, 24, 33, 35, 1002} ,
+   				{40, 41, 42, 44, 45, 1003},
+				{99, 100, 103, 106, 128, 1004},
+			};
+			var result14 =  SearchInSortedMatrix(matrix12, 44);
 			int[] array = new int[]{2, 5, -3, -4, 6, 7, 2};
 			var result13 = NextGreaterElement(array);
 			

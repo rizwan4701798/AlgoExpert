@@ -7,6 +7,7 @@ public class TestClass{
     [InlineData(7)]
     [InlineData(9)]
     
+    
     public void MyFirstTheory(int number){
         Assert.True(Program.IsOdd(number));
         

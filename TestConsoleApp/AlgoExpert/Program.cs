@@ -11,16 +11,44 @@ using System.Linq;
 namespace AlgoExpert
 {
 
-   
-   	public class BST {
-		public int value;
-		public BST left;
-		public BST right;
 
-		public BST(int value) {
-			this.value = value;
-		}
-	}
+    public class BST
+    {
+        public int value;
+        public BST left;
+        public BST right;
+
+        public BST(int value)
+        {
+            this.value = value;
+        }
+
+        public void insert(int value)
+        {
+            if (value < this.value)
+            {
+                if (left == null)
+                {
+                    left = new BST(value);
+                }
+                else
+                {
+                    left.insert(value);
+                }
+            }
+            else
+            {
+                if (right == null)
+                {
+                    right = new BST(value);
+                }
+                else
+                {
+                    right.insert(value);
+                }
+            }
+        }
+    }
     public class Node
     {
         public string name;
@@ -1309,77 +1337,90 @@ namespace AlgoExpert
             return n;
         }
 
-		public static bool ValidateBST(BST tree){
-			return ValidateHelper(tree, int.MinValue, int.MaxValue);
-		}
-
-		public static bool ValidateHelper(BST tree, int min, int max){
-			if (tree == null) return true;
-			if(tree.value < max && tree.value >= min){
-				return ValidateHelper(tree.left, min, tree.value) && ValidateHelper(tree.right, tree.value, max);
-			} else {
-				return false;
-			}
-		}
-
-	public static int MaxSubsetSumNoAdjacent(int[] array) {
-		// Write your code here.
-		if(array  == null || array.Length == 0) {
-            return 0;
-        }
-
-        if(array.Length == 1) {
-            return array[0];
-        }
-
-        var secondLastMax = 0;
-        var lastMax = array[0];
-        var index = 1;
-
-        while(index < array.Length){
-            var current = array[index] + secondLastMax;
-            var temp = lastMax;
-            lastMax = Math.Max(lastMax, current);
-            secondLastMax = temp;
-            index++;
-        }
-
-        return lastMax;
-	}
-
-	public static async Task<bool> interveavingString(string one, string two, string three){
-          int p1 = 0;
-		  int p2 = 0;
-
-		  for (int i = 0; i < three.Length; i++) {
-
-            if(p1 < one.Length) {
-		    	if(three[i] == one[p1])  p1++;
-		    }
-		    if(p2 < two.Length) {
-		    	if(three[i] == two[p2]) p2++;
-		    }
-			
-		  }
-
-		  return  p1 == one.Length && p2 == two.Length;
-
-	}
-
-
-
-	  private static Task<int> AdditionAsync(int no1, int no2)
-    {
-        return Task.Run(() => SUM(no1, no2));
-        //Local function 
-        int SUM(int x, int y)
+        public static bool ValidateBST(BST tree)
         {
-            return x + y;
+            return ValidateHelper(tree, int.MinValue, int.MaxValue);
         }
-    }
+
+        public static bool ValidateHelper(BST tree, int min, int max)
+        {
+            if (tree == null) return true;
+            if (tree.value < max && tree.value >= min)
+            {
+                return ValidateHelper(tree.left, min, tree.value) && ValidateHelper(tree.right, tree.value, max);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static int MaxSubsetSumNoAdjacent(int[] array)
+        {
+            // Write your code here.
+            if (array == null || array.Length == 0)
+            {
+                return 0;
+            }
+
+            if (array.Length == 1)
+            {
+                return array[0];
+            }
+
+            var secondLastMax = 0;
+            var lastMax = array[0];
+            var index = 1;
+
+            while (index < array.Length)
+            {
+                var current = array[index] + secondLastMax;
+                var temp = lastMax;
+                lastMax = Math.Max(lastMax, current);
+                secondLastMax = temp;
+                index++;
+            }
+
+            return lastMax;
+        }
+
+        public static async Task<bool> interveavingString(string one, string two, string three)
+        {
+            int p1 = 0;
+            int p2 = 0;
+
+            for (int i = 0; i < three.Length; i++)
+            {
+
+                if (p1 < one.Length)
+                {
+                    if (three[i] == one[p1]) p1++;
+                }
+                if (p2 < two.Length)
+                {
+                    if (three[i] == two[p2]) p2++;
+                }
+
+            }
+
+            return p1 == one.Length && p2 == two.Length;
+
+        }
 
 
-public static int covertgo1(string S)
+
+        private static Task<int> AdditionAsync(int no1, int no2)
+        {
+            return Task.Run(() => SUM(no1, no2));
+            //Local function 
+            int SUM(int x, int y)
+            {
+                return x + y;
+            }
+        }
+
+
+        public static int covertgo1(string S)
         {
             if (S == "") return 0;
 
@@ -1390,9 +1431,9 @@ public static int covertgo1(string S)
                 charsFrequency[c - 'A']++;
             }
 
-            var CharAFrequency = charsFrequency[0]/3;
+            var CharAFrequency = charsFrequency[0] / 3;
             var CharBFrequency = charsFrequency[1];
-            var CharNFrequency = charsFrequency[13]/2;
+            var CharNFrequency = charsFrequency[13] / 2;
 
             return Math.Min(CharNFrequency, Math.Min(CharAFrequency, CharBFrequency));
 
@@ -1419,16 +1460,17 @@ public static int covertgo1(string S)
 
             for (int i = 0; i < reserverSeats.Length; i++)
             {
-                if (!dict.ContainsKey(reserverSeats[i])){
+                if (!dict.ContainsKey(reserverSeats[i]))
+                {
                     dict.Add(reserverSeats[i], reserverSeats[i]);
                 }
             }
 
-            for (int j = 0; j< N; j++)
+            for (int j = 0; j < N; j++)
             {
                 for (int k = 0; k < 10; k++)
                 {
-                    var str = (j + 1).ToString() +  CharDict[k];
+                    var str = (j + 1).ToString() + CharDict[k];
                     if (dict.ContainsKey(str))
                     {
                         arrayReservervedSeats[j, k] = 1;
@@ -1438,7 +1480,7 @@ public static int covertgo1(string S)
 
             for (int m = 0; m < N; m++)
             {
-                if(arrayReservervedSeats[m,1] == 0 && arrayReservervedSeats[m, 2] == 0 && arrayReservervedSeats[m, 3] == 0 && arrayReservervedSeats[m, 4] == 0)
+                if (arrayReservervedSeats[m, 1] == 0 && arrayReservervedSeats[m, 2] == 0 && arrayReservervedSeats[m, 3] == 0 && arrayReservervedSeats[m, 4] == 0)
                 {
                     familiesCount++;
                     arrayReservervedSeats[m, 1] = 1;
@@ -1453,21 +1495,21 @@ public static int covertgo1(string S)
                     arrayReservervedSeats[m, 6] = 1;
                     arrayReservervedSeats[m, 7] = 1;
                     arrayReservervedSeats[m, 8] = 1;
-                }  
-                
+                }
+
                 if (arrayReservervedSeats[m, 3] == 0 && arrayReservervedSeats[m, 4] == 0 && arrayReservervedSeats[m, 5] == 0 && arrayReservervedSeats[m, 6] == 0)
                 {
                     familiesCount++;
                 }
             }
-                    return familiesCount;
+            return familiesCount;
         }
 
         public static void checkduplicate(int[] numbers)
         {
             var dict = new Dictionary<int, int>();
 
-            
+
             for (int i = 0; i < numbers.Length; i++)
             {
                 if (!dict.ContainsKey(numbers[i]))
@@ -1478,7 +1520,7 @@ public static int covertgo1(string S)
                 {
                     dict[numbers[i]]++;
                 }
-                
+
             }
 
             int y = 3 / 2;
@@ -1555,75 +1597,206 @@ public static int covertgo1(string S)
 
             Stack<string> paranthesesStack = new Stack<string>();
 
-            foreach (var c in  s)
+            foreach (var c in s)
             {
-                    if (c == '(')
+                if (c == '(')
+                {
+                    paranthesesStack.Push(c.ToString());
+                }
+
+                else if (c == ')')
+                {
+                    if (paranthesesStack.Count == 0)
+                    {
+                        paranthesesStack.Push(c.ToString());
+
+                    }
+
+                    else if (paranthesesStack.Peek() != "(")
                     {
                         paranthesesStack.Push(c.ToString());
                     }
-
-                    else if (c == ')')
+                    else
                     {
-                        if (paranthesesStack.Count == 0)
-                        {
-                            paranthesesStack.Push(c.ToString());
-                            
-                        }
-
-                        else if (paranthesesStack.Peek() != "(")
-                        {
-                            paranthesesStack.Push(c.ToString());
-                        }
-                        else
-                        {
-                            paranthesesStack.Pop();
-                        }
+                        paranthesesStack.Pop();
                     }
-
-
                 }
+
+
+            }
 
             return paranthesesStack.Count;
         }
 
-        public List<List<string> > Semordnilap(string[] words) {
+        public List<List<string>> Semordnilap(string[] words)
+        {
             List<List<string>> semordnilap = new List<List<string>>();
             Dictionary<string, string> sortedStringMap = new Dictionary<string, string>();
-            foreach(string word in words)
+            foreach (string word in words)
             {
                 char[] wordArr = word.ToCharArray();
                 Array.Sort(wordArr);
                 string sortedString = new string(wordArr);
-                if(!sortedStringMap.ContainsKey(sortedString))
+                if (!sortedStringMap.ContainsKey(sortedString))
                 {
                     sortedStringMap.Add(sortedString, word);
-                } else {
+                }
+                else
+                {
                     semordnilap.Add(new List<string>() {
                         sortedStringMap[sortedString], word
                     });
                 }
-                
-            }
-            return semordnilap; 
-	 }
-            
 
+            }
+            return semordnilap;
+        }
+
+        public static BST MinHeightBst(List<int> array, int startIndex = 0, int endIndex = -1)
+        {
+            // Write your code here.
+            if (endIndex == -1)
+            {
+                endIndex = array.Count - 1;
+            }
+            var parentIndex = startIndex + (endIndex - startIndex) / 2;
+            var bst = new BST(array[parentIndex]);
+            if (parentIndex > startIndex)
+            {
+                bst.left = MinHeightBst(array, startIndex, parentIndex - 1);
+            }
+            if (parentIndex < endIndex)
+            {
+                bst.right = MinHeightBst(array, parentIndex + 1, endIndex);
+            }
+
+            return bst;
+        }
+
+        public void traverseTreeFromLargestToLowest(BST tree, int k, List<int> candidates)
+        {
+            if (tree == null || candidates.Count >= k)
+                return;
+
+            traverseTreeFromLargestToLowest(tree.right, k, candidates);
+            candidates.Add(tree.value);
+            traverseTreeFromLargestToLowest(tree.left, k, candidates);
+
+        }
+
+
+        public int FindKthLargestValueInBst(BST tree, int k)
+        {
+            // Write your code here.
+            var candidates = new List<int>();
+            traverseTreeFromLargestToLowest(tree, k, candidates);
+            if (k <= candidates.Count)
+            {
+                return candidates[k - 1];
+            }
+
+            return -1;
+        }
+
+        public int BinaryTreeDiameter(BinaryTree tree)
+        {
+            if (tree == null) return 0;
+            int leftHeight = Height(tree.left);
+            int rightHeight = Height(tree.right);
+
+            int leftDiameter = BinaryTreeDiameter(tree.left);
+            int rightDiameter = BinaryTreeDiameter(tree.right);
+
+            return Math.Max(leftHeight + rightHeight, Math.Max(leftDiameter, rightDiameter));
+        }
+        private int Height(BinaryTree tree)
+        {
+            if (tree == null) return 0;
+            return 1 + Math.Max(Height(tree.left), Height(tree.right));
+        }
+
+        public bool OneEdit(string stringOne, string stringTwo)
+        {
+            // Write your code here.
+            if (Math.Abs(stringOne.Length - stringTwo.Length) > 1)
+                return false;
+
+            return IsReplace(stringOne, stringTwo);
+        }
+
+        private bool IsReplace(string longer, string smaller)
+        {
+            if (longer.Length < smaller.Length)
+                return IsReplace(smaller, longer);
+
+            var madeEdit = false;
+
+            for (int l = 0, s = 0; l < longer.Length && s < smaller.Length; s++, l++)
+            {
+                if (longer[l] != smaller[s])
+                {
+                    if (madeEdit) return false;
+                    madeEdit = true;
+
+                    if (longer.Length != smaller.Length)
+                        s--;
+                }
+
+            }
+            return true;
+        }
+
+        public static bool GlobMatching(string fileName, string pattern)
+        {
+            var wildcard = '*';
+            var questionmark = '?';
+
+            var p1 = 0;
+            var p2 = 0;
+
+            while (p1 < fileName.Length && p2 < pattern.Length)
+            {
+                if (fileName[p1] == pattern[p2] || pattern[p2] == questionmark)
+                {
+                    p1++;
+                    p2++;
+                }
+                else if (pattern[p2] == wildcard)
+                {
+                    while (p2 < pattern.Length && (pattern[p2] == wildcard || pattern[p2] == questionmark))
+                        p2++;
+
+                    if (p2 == pattern.Length)
+                        return true;
+
+                    while (p1 < fileName.Length && fileName[p1] != pattern[p2])
+                        p1++;
+
+                }
+                else
+                    return false;
+
+            }
+            while (p2 < pattern.Length && pattern[p2] == wildcard)
+                p2++;
+
+            return p1 == fileName.Length && p2 == pattern.Length;
+        }
         static void Main(string[] args)
         {
 
-			Console.Title = "async Task<int> Main";
-        int number1 = 5, number2 = 10;
-      //  Console.WriteLine($"Sum of {number1} and {number2} is: {await AdditionAsync(number1, number2)}");
-        Console.WriteLine("Press any key to exist.");
-        Console.ReadKey();
-        
-			
-			//var result345 = await interveavingString("algoexpert", "your-dream-job45", "your-algodream-expertjob" );
+            Console.Title = "async Task<int> Main";
+            int number1 = 5, number2 = 10;
+            //  Console.WriteLine($"Sum of {number1} and {number2} is: {await AdditionAsync(number1, number2)}");
+            Console.WriteLine("Press any key to exist.");
+            Console.ReadKey();
+
+
+            //var result345 = await interveavingString("algoexpert", "your-dream-job45", "your-algodream-expertjob" );
             //return result345;
 
-		   
-		    var words = new string[] { "this", "that", "did", "deed", "them!", "a" };
-            var result46 = MinimumCharactersForWords(words);
+            var words = new string[] { "this", "that", "did", "deed", "them!", "a" };
+
 
             int[,] matrix12 = new int[,]
             {
@@ -1633,11 +1806,6 @@ public static int covertgo1(string S)
                    {40, 41, 42, 44, 45, 1003},
                 {99, 100, 103, 106, 128, 1004},
             };
-            var result14 = SearchInSortedMatrix(matrix12, 44);
-            int[] array = new int[] { 2, 5, -3, -4, 6, 7, 2 };
-            var result13 = NextGreaterElement(array);
-
-            var result12 = BalanceBracket("[}");
 
             int[][] matrix =
             {
@@ -1649,6 +1817,13 @@ public static int covertgo1(string S)
                 new int[] { 1, 0, 0, 0, 0, 1 },
 
             };
+            var result14 = SearchInSortedMatrix(matrix12, 44);
+            int[] array = new int[] { 2, 5, -3, -4, 6, 7, 2 };
+            var result13 = NextGreaterElement(array);
+
+            var result12 = BalanceBracket("[}");
+
+
 
             var result1 = RemoveIslands(matrix);
 

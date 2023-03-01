@@ -567,7 +567,7 @@ namespace TestConsoleApp
                 }
                 currentPathIndex++;
 
-                if (RootNode.LeftNode == null && RootNode.RightNode == null) // Bottom Node
+                if (RootNode.LeftNode == null && RootNode.RightNode == null)
                 {
 
                     int currentPathSum = 0;
@@ -753,7 +753,7 @@ namespace TestConsoleApp
 
                 // Enum flags
                 var someVals = (byte)(SomeValues.Blue);
-                Console.WriteLine($"{ Convert.ToString((byte)someVals, 2).PadLeft(8, '0')}");
+                Console.WriteLine($"{Convert.ToString((byte)someVals, 2).PadLeft(8, '0')}");
 
                 if ((someVals & (byte)SomeValues.Blue) == (byte)SomeValues.Blue)
                     Console.WriteLine("Blue was included");
@@ -903,7 +903,7 @@ namespace TestConsoleApp
 
                 for (int i = 0; i < nums.Length; i++)
                 {
-                    if (dict .ContainsKey(nums[i]))
+                    if (dict.ContainsKey(nums[i]))
                     {
                         dict[nums[i]] = dict[nums[i]] + 1;
 
@@ -1904,8 +1904,8 @@ namespace TestConsoleApp
                 {
                     freqsecondsP[s[j] - 'a']++;
 
-                   if ((freqsecondsP['r' - 'a'] == freqP['r' - 'a']) && (freqsecondsP['m' - 'a'] == freqP['m' - 'a']) && (freqsecondsP['p' - 'a'] == freqP['p' - 'a']) && (freqsecondsP['o' - 'a'] == freqP['o' - 'a']) && (freqsecondsP['g' - 'a'] == freqP['g' - 'a']) && (freqsecondsP['a' - 'a'] == freqP['a' - 'a']))
-                        {
+                    if ((freqsecondsP['r' - 'a'] == freqP['r' - 'a']) && (freqsecondsP['m' - 'a'] == freqP['m' - 'a']) && (freqsecondsP['p' - 'a'] == freqP['p' - 'a']) && (freqsecondsP['o' - 'a'] == freqP['o' - 'a']) && (freqsecondsP['g' - 'a'] == freqP['g' - 'a']) && (freqsecondsP['a' - 'a'] == freqP['a' - 'a']))
+                    {
                         secondProgFirstIndex = j;
                         break;
 
@@ -1973,10 +1973,10 @@ namespace TestConsoleApp
 
                 while (head != null)
                 {
-                   // LinkedList next = head.Next;
-                  //  head.Next = prev;
+                    // LinkedList next = head.Next;
+                    //  head.Next = prev;
                     prev = head;
-                  //  head = next;
+                    //  head = next;
 
                 }
 
@@ -2134,7 +2134,7 @@ namespace TestConsoleApp
                             isTestPassed = false;
                         }
 
-                       
+
 
                         dictTestCases.Remove(T[j]);
                         if (Char.IsLetter(T[j][T[j].Length - 1]))
@@ -2152,7 +2152,7 @@ namespace TestConsoleApp
                                     isTestPassed = false;
                                 }
 
-                                dictTestCases.Remove(T[j]+c);
+                                dictTestCases.Remove(T[j] + c);
                             }
 
 
@@ -2164,7 +2164,7 @@ namespace TestConsoleApp
                         totalGroupsCount++;
                     }
 
-                    
+
 
                 }
 
@@ -2531,7 +2531,7 @@ namespace TestConsoleApp
                     }
                 }
 
-             
+
 
                 var sorted = dict.OrderBy(d => d.Key).ToArray();
                 ListNode head = null, curNode = null;
@@ -3205,17 +3205,39 @@ public class Node {
                 return find;
             }
 
-         
+
+            public ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+            {
+                var dummyHead = new ListNode(0);
+                var curr = dummyHead;
+                int carry = 0;
+                while ((l1 != null) || (l2 != null) || (carry != 0))
+                {
+                    var x = (l1 != null) ? l1.val : 0;
+                    var y = (l2 != null) ? l2.val : 0;
+                    var sum = x + y + carry;
+                    carry = sum / 10;
+                    curr.next = new ListNode(sum % 10);
+                    curr = curr.next;
+                    if (l1 != null) {
+                        l1 = l1.next;
+                    }
+                    if (l2 != null) {
+                        l2 = l2.next;
+                    }
+                }
+                return dummyHead.next;
+            }
 
             static void Main(string[] args)
             {
-                
+
 
 
 
                 string[] T = new string[5] { "codility1", "codility3", "codility2", "codility4b", "codility4a" };
                 string[] R = new string[5] { "Wrong answer", "OK", "OK", "Time limit exceeded", "OK" };
-                int istry76 =   toptal23( T,  R);
+                int istry76 = toptal23(T, R);
 
 
                 string strggg = "bujrnytmoufnkgvpvjuvucjfzgyiankznkvquqduyzsehkoatikwckxpdgudcsxgqqtqlqmhkwsklsnabgzbxwmnovosjhfyjqlrtgvqmfpzytfsriugbfdarcbpzihtxvbzropxxdzrdgeyovsjpbuobetmrtgylypddnnmrpsucxwtpoegxpxvjyjjhqylnngzkjmjrksnnuaumvrniqrihulasoiqnkwcwmhhrghgbqizijqofavgpguzgqpaouezkbiirkqbebxhwqacnqdhtccpbwslarwokpqfvicdcflekunuqymjhjjpystvthjneesizkpziffyuoqpnjgkcjgunflxpnhbzcuuyiucctdpmtnrchmrramiapfwugkhbljsyjifuoaehacivmeqevsjcdelevkwuletdzyojqpfzfpiwrinsoxfhqbwysaiqccsyfnduhrguuwysquvebtgaqpuiopijcfqnfnsvwlmqznsndaoarsqqhegexnpmzvugsxwdoduelhpdektspfuhnylmyfgsxmoedwvzvlvvlsmfigcqllzpexrpkhykyiqbshifycdhnjxiprezjnsuemqpykbxcovphaedipawxhkszkfirwhdiujzkemipzpehmbrvxbyzepqowsmdrlthiegamtfnidunjzlgqnfumyhvsxkfeqggwujvhwjvwkwbkhgldjhuwzdpxhpydxepgwkkmfmdbarmpwwxsscxvtzxdhhzdfboncipfnnjughfrnfnnwcvejshlpvxpoqnmftgrolxqdongudajqatzzqswpgypgwwxgofeibnmcnfouuopqpowhlipgtwvpjpwecvlacyvmqpejotcjvncnpieinglxcsgixadnoyxpdkougzegwaxpwyzcvnbfbgfzgzqmtumltovtbdjnaciaknqjpawhwtdxmbaxzjcmrysxdkiqosjtmfyxajzwfgmdpmumoakz";
@@ -3467,7 +3489,7 @@ public class Node {
                     mid = (right + left) / 2;
                     SortMerge(numbers, left, mid);
                     SortMerge(numbers, (mid + 1), right);
-                  //  MainMerge(numbers, left, (mid + 1), right);
+                    //  MainMerge(numbers, left, (mid + 1), right);
                 }
             }
 
@@ -3634,7 +3656,7 @@ public class Node {
                     {
                         var dictvalue = 0;
                         dict.TryGetValue(winner, out dictvalue);
-                        
+
 
                         wincounter = dictvalue;
                         wincounter = wincounter + 1;
